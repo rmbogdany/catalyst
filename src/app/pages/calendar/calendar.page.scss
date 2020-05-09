@@ -1,0 +1,44 @@
+.sideMenu{
+	width: 5%;
+	float: left;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 2fr 1fr 1fr;
+	padding-left: 10%;
+	margin-right: 10px;
+}
+#day{
+	font-size: 20px;
+	
+}
+.title1{
+	text-align: center;
+}
+#date1{
+	font-size: 25px;
+	font-weight: bold;
+}
+.list{
+	width: 75%;
+	float: right;
+}
+#goalButt{
+	padding-top: 5px;
+	font-size: 20px;
+}
+#listButt{
+	padding-top: 10px;
+	font-size: 20px;
+}
+#goalsCal{
+	display: none;
+}
+#eventsCal{
+	display: block;
+}
+#todoCal{
+	display: none;
+}
+#holder{
+	display: block;
+}

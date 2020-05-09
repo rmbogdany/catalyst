@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="ion-padding">
+		<ion-calendar [(ngModel)]="date" 
+					(change)="onChange($event)" 
+					[type]="type" 
+					[format]="'YYYY-MM-DD'">
+		</ion-calendar>
+	</div>
+	<div>
+		<div class="sideMenu">
+			<div (click)="getEvents()"><div id="date1"></div><div id="day"></div></div>
+			<ion-icon (click)="getGoals()" id="goalButt" name="analytics-outline"></ion-icon>
+			<ion-icon (click)="getTodo()" id="listButt" name="checkbox-outline"></ion-icon>
+		</div>
+		<div id="eventsCal">
+		<ion-list *ngFor="let todo of events" class="list">
+			<ion-item>{{todo[0]}} &nbsp;&nbsp;&nbsp;&nbsp;<ion-label>{{todo[1]}}</ion-label></ion-item>
+		</ion-list>
+		<ion-item class="ion-margin-start list" id="holder">No events</ion-item>
+		</div>
+		<div id="goalsCal">
+		<ion-item class="ion-margin-start list">Daily Goals</ion-item>
+		<ion-list *ngFor="let goal of goals" class="list">
+			<ion-item><input type="checkbox">&nbsp;&nbsp;<ion-label>{{goal}}</ion-label></ion-item>
+		</ion-list>
+		</div>
+		<div id="todoCal">
+		<ion-item class="ion-margin-start list">Daily Todo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-button (click)="addDaily()"><ion-icon name="add"></ion-icon></ion-button></ion-item>
+		<ion-list *ngFor="let todo of todoList; let i = index;" class="list">
+			<ion-item><input type="checkbox">&nbsp;&nbsp;<ion-label>{{todo}}</ion-label>
+			<ion-buttons slot="end">
+				<ion-button (click)="deleteDailyNote(i);">
+					<ion-icon slot="icon-only" name="close"></ion-icon>
+				</ion-button>
+			</ion-buttons>
+			</ion-item>
+		</ion-list>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-fab vertical="bottom" horizontal="end">
+		<ion-fab-button (click)="openModal();">
+			<ion-icon name="add-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-footer>

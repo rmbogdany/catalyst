@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngFor="let todo of events">
+		<ion-item>{{todo}}</ion-item>
+		<ion-list class="ion-padding-start ion-margin-start" *ngFor="let evt of getTodaysEvents(todo); let i = index;">
+			<ion-item id="{{evt[2]}}" (click)="openModalDetails($event)">{{evt[0]}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>{{evt[1]}}</ion-label>
+			</ion-item>
+		</ion-list>
+	</ion-list>
+</ion-content>
+
+<ion-footer>
+	<ion-fab vertical="bottom" horizontal="end">
+		<ion-fab-button (click)="openModal();">
+			<ion-icon name="add-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-footer>

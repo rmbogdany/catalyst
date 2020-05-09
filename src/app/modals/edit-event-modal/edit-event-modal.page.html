@@ -1,0 +1,42 @@
+<ion-header>
+	<ion-toolbar>
+		<h3 class="ion-text-left ion-padding-start">Edit Event</h3>
+        <ion-buttons slot="end">
+			<ion-button (click)="closeModalSave()">
+				<ion-label>Save</ion-label>
+			</ion-button>
+			<ion-button (click)="closeModalDelete()">
+				<ion-label>Delete</ion-label>
+			</ion-button>
+			<ion-button (click)="closeModal()">
+				<ion-icon slot="icon-only" name="close"></ion-icon>
+			</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-input class="ion-padding-start" id="title" required type="text" placeHolder="Title..."></ion-input>
+	<ion-item>
+		<ion-label>Start Date:</ion-label><ion-datetime id="start" display-format="D MMM YYYY H:mm" min="1970" max="2050" [(ngModel)]="myStartDate"></ion-datetime>
+	</ion-item>
+	<ion-item>
+		<ion-label>End Date:</ion-label><ion-datetime id="end" display-format="D MMM YYYY H:mm" min="1970" max="2050" [(ngModel)]="myEndDate"></ion-datetime>
+	</ion-item>
+	<ion-item>
+		<ion-icon name="notifications"></ion-icon><ion-label>30 minute reminder</ion-label><ion-checkbox id="check" (click)="changeReminder($event)"></ion-checkbox>
+	</ion-item>
+	<div id="loc">
+	<ion-item>
+		<ion-label>Location: </ion-label><ion-label id="myLoc" (click)="search()">{{myLoc}}</ion-label>
+	</ion-item> 
+	</div>
+	<div id="search">
+	<ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+	<ion-list [hidden]="autocompleteItems.length == 0">
+		<ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+			{{ item.description }}
+		</ion-item>
+	</ion-list>
+	</div>
+</ion-content>

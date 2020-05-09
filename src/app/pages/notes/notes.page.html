@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Notes</ion-title>
+		<ion-button (click)="toggleCategoriesReorder();" slot="end">
+			<ion-label>{{ reorderCategoriesIsDisabled ? 'Edit' : 'Done' }}</ion-label>
+		</ion-button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-reorder-group [disabled]="reorderCategoriesIsDisabled" (ionItemReorder)="reorderItems($event)">
+			<ion-item-sliding #slidingItem *ngFor="let notes of notesCategories; let i= index">
+				<ion-item>
+					<ion-label ion-button (click)="openLists(notes.cat);"><ion-icon id="{{notes.cat}}down" class="down" slot="start" name="arrow-down"></ion-icon><ion-icon id="{{notes.cat}}forward" class="forward" slot="start" name="arrow-forward"></ion-icon>&nbsp;&nbsp;&nbsp;{{notes.cat}}</ion-label>
+					<ion-buttons slot="end">
+						<ion-button (click)="openModal(notes.cat);">
+							<ion-icon slot="icon-only" name="add"></ion-icon>
+						</ion-button>
+						<ion-button (click)="deleteCat(i);">
+							<ion-icon slot="icon-only" name="close"></ion-icon>
+						</ion-button>
+						<ion-reorder slot="end"></ion-reorder>
+					</ion-buttons>
+				</ion-item>
+				<div class="outer" id="{{notes.cat}}" (click)="openModalDetails($event)">
+				</div>
+			</ion-item-sliding>
+		</ion-reorder-group>
+	</ion-list>
+</ion-content>
+
+<ion-footer>
+	<ion-fab vertical="bottom" horizontal="end">
+		<ion-fab-button (click)="presentAddNewEvent();">
+			<ion-icon name="add-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-footer>

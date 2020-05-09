@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Goals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item>
+		<ion-label>Daily Goals</ion-label>
+		<ion-buttons slot="end">
+			<ion-button (click)="addDailyGoal()">
+				<ion-icon slot="icon-only" name="add"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-item>
+	<ion-list class="ion-padding-start ion-margin-start" *ngFor="let goal of daily; let i = index;">
+		<ion-item>
+			<ion-icon name="star"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+			<ion-label>{{goal}}</ion-label>
+			<ion-buttons slot="end">
+				<ion-button (click)="deleteDailyGoal(i);">
+					<ion-icon slot="icon-only" name="close"></ion-icon>
+				</ion-button>
+			</ion-buttons>
+		</ion-item>
+	</ion-list>
+	<ion-item>
+		<ion-label>Long-Term Goals</ion-label>
+		<ion-buttons slot="end">
+			<ion-button (click)="addGoal()">
+				<ion-icon slot="icon-only" name="add"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-item>
+	<ion-list class="ion-padding-start ion-margin-start" *ngFor="let gol of goals; let i = index;">
+		<ion-item>
+			<ion-icon name="sunny"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+			<ion-label>{{gol}}</ion-label>
+			<ion-buttons slot="end">
+				<ion-button (click)="deleteGoal(i);">
+					<ion-icon slot="icon-only" name="close"></ion-icon>
+				</ion-button>
+			</ion-buttons>
+		</ion-item>
+	</ion-list>
+	<ion-list>
+		<ion-item-sliding #slidingItem *ngFor="let goals of goalCat; let x= index">
+			<ion-item>
+				<ion-label>{{goals}}</ion-label>
+				<ion-buttons slot="end">
+					<ion-button (click)="addCustomGoal(goals)">
+						<ion-icon slot="icon-only" name="add"></ion-icon>
+					</ion-button>
+				</ion-buttons>
+			</ion-item>
+			<ion-list class="ion-padding-start ion-margin-start" *ngFor="let gol of getGoalHolder(goals); let i = index;">
+				<ion-item>
+					<ion-icon name="sunny"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;
+					<ion-label>{{gol}}</ion-label>
+					<ion-buttons slot="end">
+						<ion-button (click)="deleteCustomGoal(goals, i);">
+							<ion-icon slot="icon-only" name="close"></ion-icon>
+						</ion-button>
+					</ion-buttons>
+				</ion-item>
+			</ion-list>
+			<ion-item-options side="end" (click)="deleteGoalCat(x)">
+				<ion-item-option color="danger">
+					<ion-icon name="archive"></ion-icon>
+				</ion-item-option>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>
+
+<ion-footer>
+	<ion-fab vertical="bottom" horizontal="end">
+		<ion-fab-button (click)="presentAddNewGoalCat();">
+			<ion-icon name="add-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-footer>

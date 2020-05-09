@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-toolbar>
+		<h3 class="ion-text-left ion-padding-start">Edit Note</h3>
+        <ion-buttons slot="end">
+			<ion-button (click)="closeModalSave()">
+				<ion-label>Save</ion-label>
+			</ion-button>
+			<ion-button id="delete" (click)="closeModalDelete()">
+				<ion-label>Delete</ion-label>
+			</ion-button>
+			<ion-button (click)="closeModal()">
+				<ion-icon slot="icon-only" name="close"></ion-icon>
+			</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding class="back">
+	<div id="list">
+	<ion-list lines="none">
+		<form [formGroup]="myForm">
+			<ion-input id="title" class="ion-padding-start" required type="text" placeHolder="Title..."></ion-input>
+			<ion-item #items *ngFor="let control of myForm.controls | keyvalue; let last = last">
+				<ion-checkbox class="box" ></ion-checkbox><span>&nbsp;&nbsp;&nbsp;</span>
+				<ion-input required type="text" [formControlName]="control.key" placeHolder="list item..."></ion-input>
+				<ion-icon (click)="removeControl(control)" name="close-circle"></ion-icon>
+				<span *ngIf="last">{{ngForCallback()}}</span>
+			</ion-item>
+			<ion-button class="newItem" expand="full" color="light" (click)="addControl()">Add List Item</ion-button>
+		</form>
+	</ion-list>
+	</div>
+	<div id="note">
+	<ion-input class="ion-padding-start" id="titleN" required type="text" placeHolder="Title..."></ion-input>
+	<ion-item>
+		<ion-textarea [(ngModel)]="myInput" placeholder="Enter more information here..."></ion-textarea>
+	</ion-item>
+	</div>
+	<ion-fab vertical="bottom">
+		<div class="colors">
+			&nbsp;&nbsp;&nbsp;<span class="dot" id="#B7BA2D" (click)="changeColor(this,$event)"></span>&nbsp;&nbsp;&nbsp;
+			<span class="dot" id="#54991E" (click)="changeColor(this,$event)"></span>&nbsp;&nbsp;&nbsp;
+			<span class="dot" id="#1CC39B" (click)="changeColor(this,$event)"></span>&nbsp;&nbsp;&nbsp;
+			<span class="dot" id="#1C2DC3" (click)="changeColor(this,$event)"></span>&nbsp;&nbsp;&nbsp;
+			<span class="dot" id="#662776" (click)="changeColor(this,$event)"></span>&nbsp;&nbsp;&nbsp;
+			<span class="dot" id="#C31CB2" (click)="changeColor(this,$event)"></span>
+		</div>
+	</ion-fab>
+</ion-content>
