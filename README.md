@@ -8,3 +8,7 @@ Ionic personal scheduling application
   - Checklists
   - Event Location Tracking
   - Event Notifications
+
+## Views
+
+<a><img src="https://github.com/rmbogdany/Catalyst/tree/master/src/assets/img1.JPG" align="left" width="48px"></a>
