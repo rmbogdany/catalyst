@@ -11,4 +11,11 @@ Ionic personal scheduling application
 
 ## Views
 
-<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img1.JPG" align="left" width="48px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img1.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img2.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img3.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img4.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img5.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img6.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img7.JPG" align="left" width="100px"></a>
+<a><img src="https://github.com/rmbogdany/Catalyst/blob/master/src/assets/img8.JPG" align="left" width="100px"></a>
