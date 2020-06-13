@@ -7,3 +7,4 @@ Ionic personal scheduling application
   - Note-taking
   - Checklists
   - Event Location Tracking
+  - Event Notifications
